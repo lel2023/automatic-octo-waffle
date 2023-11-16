@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Content</title>
+    <style>
+        .line {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="interactiveContent">
+        <button onclick="showNextLine()">继续阅读</button>
+        <div class="content" id="content">
+            <!-- 重复以下 p 的结构，每个 p 对应文章的一行 -->
+            <p class="line hidden" id="line1">这是第一行内容。</p>
+            <p class="line hidden" id="line2">这是第二行内容。</p>
+            <p class="line hidden" id="line3">这是第三行内容。</p>
+            <p class="line hidden" id="line4">这是第四行内容。</p>
+            <p class="line hidden" id="line5">这是第五行内容。</p>
+            <p class="line hidden" id="line6">这是第六行内容。</p>
+            <p class="line hidden" id="line7">这是第七行内容。</p>
+            <p class="line hidden" id="line8">这是第八行内容。</p>
+            <p class="line hidden" id="line9">这是第九行内容。</p>
+            <p class="line hidden" id="line10">这是第十行内容。</p>
+        </div>
+    </div>
+    <script>
+        let currentLine = 1;
+
+        function showNextLine() {
+            const currentDiv = document.getElementById(`line${currentLine}`);
+            if (currentDiv) {
+                currentDiv.classList.remove('hidden');
+                currentDiv.classList.add('visible');
+                currentLine++;
+                if (currentLine > 10) {
+                    alert('已显示所有内容。'); // 或者根据需要执行其他操作
+                }
+            }
+        }
+    </script>
+</body>
+</html>
